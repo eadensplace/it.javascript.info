@@ -1,14 +1,14 @@
-# Multiline mode, flag "m"
+# Modalità multilinea, flag "m"
 
-The multiline mode is enabled by the flag `pattern:/.../m`.
+La modalità multilinea viene abilitata dalla flag `pattern:/.../m`.
 
-It only affects the behavior of `pattern:^` and `pattern:$`.
+Essa influisce solo sul comportamento di `pattern:^` e `pattern:$`.
 
-In the multiline mode they match not only at the beginning and end of the string, but also at start/end of line.
+Nella modalità multilinea essi combaciano non solo all'inizio e alla fine della stringa, ma anche all'inizio/fine della riga.
 
-## Line start ^
+## Inizio riga ^
 
-In the example below the text has multiple lines. The pattern `pattern:/^\d+/gm` takes a number from the beginning of each one:
+Nell'esempio sottostante, il testo è composto da più righe. Il pattern `pattern:/^\d+/gm` prende un numero dall'inizio di ciascuna riga:
 
 ```js run
 let str = `1st place: Winnie
@@ -20,9 +20,9 @@ alert( str.match(/^\d+/gm) ); // 1, 2, 33
 */!*
 ```
 
-The regexp engine moves along the text and looks for a line start `pattern:^`, when finds -- continues to match the rest of the pattern `pattern:\d+`.
+Il motore delle regexp si sposta lungo il testo e cerca l'inizio di una riga `pattern:^`, quando la trova continua a cercare corrispondenze per il resto del pattern `pattern:\d+`.
 
-Without the flag  `pattern:/.../m` only the first number is matched:
+Senza la flag  `pattern:/.../m` solo il primo numero viene trovato:
 
 ```js run
 let str = `1st place: Winnie
@@ -34,7 +34,7 @@ alert( str.match(/^\d+/g) ); // 1
 */!*
 ```
 
-That's because by default a caret `pattern:^` only matches at the beginning of the text, and in the multiline mode -- at the start of any line.
+Questo avviene perchè, di base, l'accento circonflesso `pattern:^` cerca corrispondenze all'inizio del testo, e in modalità multilinea le cerca all'inizio di qualunque linea.
 
 ## Line end $
 
